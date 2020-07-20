@@ -1,0 +1,21 @@
+language: php
+sudo: required
+php:
+    - 7.4
+
+cache:
+    apt: true
+    directories:
+        - $HOME/.composer/cache
+
+before_install:
+    - pecl install psr && pecl install phalcon
+
+install:
+    - composer install
+
+script:
+    - composer test
+
+notifications:
+    email: false

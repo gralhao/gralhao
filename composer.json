@@ -1,0 +1,28 @@
+{
+    "name": "gralhao/gralhao",
+    "description": "Phalcon API Skeleton",
+    "autoload": {
+        "psr-4": {
+            "Gralhao\\": "./src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Gralhao\\Test\\": "./test"
+        }
+    },
+    "minimum-stability": "stable",
+    "scripts": {
+        "cs-check": "./vendor/bin/phpcs",
+        "cs-fix": "./vendor/bin/phpcbf",
+        "test": "./vendor/bin/phpunit --testdox --coverage-text --coverage-html coverage/html"
+    },
+    "require": {
+    },
+    "require-dev": {
+        "phalcon/devtools": "dev-master",
+        "phalcon/ide-stubs": "dev-master",
+        "squizlabs/php_codesniffer": "^3.0@dev",
+        "phpunit/phpunit": "^9.2"
+    }
+}
