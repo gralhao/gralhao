@@ -31,7 +31,7 @@ final class Bootstrap
      */
     private Micro $app;
 
-    public function __construct(?string $path = '..')
+    public function __construct(?string $path = '.')
     {
         $rootPath = realpath($path);
         $this->di = new DependencyInjection();
