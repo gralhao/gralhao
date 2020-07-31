@@ -44,6 +44,7 @@ final class ModulesLoader extends Injectable
     {
         $configs = [];
         foreach ($this->config->modules->toArray() as $moduleNameSpace) {
+            $moduleNameSpace = $moduleNameSpace . '\\Module';
             $module = new $moduleNameSpace();
             if (! $module instanceof \Gralhao\Module) {
                 throw new GralhaoException($moduleNameSpace . ' needs extends \Gralhao\Module', 1);
