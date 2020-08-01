@@ -1,14 +1,23 @@
 {
     "name": "gralhao/gralhao",
     "description": "Phalcon API Skeleton",
+    "license": "BSD-3-Clause",
+    "type": "library",
+    "homepage": "https://github.com/gralhao/gralhao",
+    "keywords": [
+        "phalcon",
+        "gralhao",
+        "api",
+        "rest"
+    ],
     "autoload": {
         "psr-4": {
-            "Gralhao\\": "./src"
+            "Gralhao\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Gralhao\\Test\\": "./test"
+            "Gralhao\\Test\\": "test/"
         }
     },
     "minimum-stability": "stable",
