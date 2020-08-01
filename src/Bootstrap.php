@@ -48,8 +48,12 @@ final class Bootstrap
      */
     public function init(): void
     {
-        $this->loadConfig()->loadModules();
-        $this->app->handle($_SERVER['REQUEST_URI'] ?? '');
+        try {
+            $this->loadConfig()->loadModules();
+            $this->app->handle($_SERVER['REQUEST_URI'] ?? '');
+        } catch (\Throwable $th) {
+            throw new GralhaoException($th->getMessage());
+        }
     }
 
     /**
