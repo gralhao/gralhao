@@ -18,6 +18,8 @@
         "test": "./vendor/bin/phpunit --testdox --coverage-text --coverage-html coverage/html"
     },
     "require": {
+        "php": "^7.4",
+        "ext-phalcon": "^4.0"
     },
     "require-dev": {
         "phalcon/devtools": "dev-master",
