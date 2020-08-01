@@ -35,7 +35,7 @@
 
 Gralhao is an application skeleton that provides a simple moduled structure to create APIS.
 
-It makes easier create, maintain and reuse parts of code. An authentication module could be a separated dependency and used in different projects.
+It makes easier create, maintain and reuse parts of code. For example, an authentication module could be a separated dependency and used in different projects.
 
 Gralhao uses Phalcon, MVC Micro. It means that all Phalcon features still available to be used.
 [Read more about Phalcon](https://phalcon.io).
@@ -49,7 +49,7 @@ PHP ^7.4, Phalcon ^4.x
 Try [gralhao/egg](https://github.com/gralhao/gralhao-egg) it provides the kickstart structure with sample code.
 
 ```bash
-git clone https://github.com/gralhao/gralhao-egg.git
+composer create-project -sdev gralhao/gralhao-egg project/path
 ```
 
 ## Built Using <a name = "built_using"></a>
