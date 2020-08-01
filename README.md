@@ -33,7 +33,7 @@
 
 ## About <a name = "about"></a>
 
-Gralhao is an application skeleton that provides a simple moduled structure to create APIS.
+Gralhao is an application skeleton that provides a simple moduled structure to create APIs.
 
 It makes easier create, maintain and reuse parts of code. For example, an authentication module could be a separated dependency and used in different projects.
 
@@ -51,6 +51,7 @@ Try [gralhao/egg](https://github.com/gralhao/gralhao-egg) it provides the kickst
 ```bash
 composer create-project -sdev gralhao/gralhao-egg project/path
 ```
+To learn how to create a module, please check the [sample module repository](https://github.com/gralhao/status-module).
 
 ## Built Using <a name = "built_using"></a>
 - [Phalcon](https://phalcon.io/) - Framework
@@ -62,4 +63,4 @@ See also the list of [contributors](https://github.com/gralhao/gralhao/contribut
 
 ## Acknowledgements <a name = "acknowledgement"></a>
 - [Phalcon Project](https://phalcon.io)
-- [A.K.A Gralhao](https://en.wikipedia.org/wiki/Red-throated_caracara)
+- [A.K.A. Gralhao](https://en.wikipedia.org/wiki/Red-throated_caracara)
