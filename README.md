@@ -8,10 +8,10 @@
 
 <div align="center">
 
+[![Latest Stable Version](https://img.shields.io/packagist/v/gralhao/gralhao.svg?style=flat-square)](https://packagist.org/packages/gralhao/gralhao)
+[![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.4-8892BF.svg)](https://php.net/)
 [![Build Status](https://travis-ci.com/gralhao/gralhao.svg?branch=master)](https://travis-ci.com/gralhao/gralhao)
 [![Status](https://img.shields.io/badge/status-active-success.svg)]()
-[![GitHub Issues](https://img.shields.io/github/issues/gralhao/gralhao.svg)](https://github.com/gralhao/gralhao/issues)
-[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/gralhao/gralhao.svg)](https://github.com/gralhao/gralhao/pulls)
 [![License](https://img.shields.io/badge/license-BSD-blue.svg)](/LICENSE)
 
 </div>
@@ -54,7 +54,7 @@ composer create-project -sdev gralhao/gralhao-egg project/path
 To learn how to create a module, please check the [sample module repository](https://github.com/gralhao/status-module).
 
 ## Built Using <a name = "built_using"></a>
-- [Phalcon](https://phalcon.io/) - Framework
+- [Phalcon](https://phalcon.io/)
 
 ## Authors <a name = "authors"></a>
 - [@mocallu](https://github.com/mocallu) - Idea & Initial work
