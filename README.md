@@ -49,7 +49,7 @@ PHP ^7.4, Phalcon ^4.x
 Try [gralhao/egg](https://github.com/gralhao/gralhao-egg) it provides the kickstart structure with sample code.
 
 ```bash
-composer create-project -sdev gralhao/gralhao-egg project/path
+composer create-project gralhao/gralhao-egg project/path
 ```
 To learn how to create a module, please check the [sample module repository](https://github.com/gralhao/status-module).
 
