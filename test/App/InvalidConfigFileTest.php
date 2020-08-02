@@ -13,7 +13,7 @@ class InvalidConfigFileTest extends TestCase
     public function testReturnGralhaoExceptionWhenTryUseInvalidConfigFile(): void
     {
         $this->expectException(GralhaoException::class);
-        $bootstrap = new Bootstrap(__DIR__ . '/fake/');
+        $bootstrap = new Bootstrap();
         $bootstrap->init();
     }
 }

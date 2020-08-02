@@ -12,7 +12,10 @@ class ErrorResponseTest extends TestCase
 {
     public function testErrorResponse(): void
     {
-        $bootstrap = new Bootstrap(__DIR__);
+        $bootstrap = new Bootstrap();
+        $bootstrap->setConfig([
+            'modules' => ['Gralhao\Test\App\Modules\Foo'],
+        ]);
         $request = $this->createMock(Request::class);
         $request->method('getRawBody')->willReturn('');
         $app = $bootstrap->getApp();
