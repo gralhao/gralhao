@@ -14,7 +14,7 @@ final class ModulesLoader extends Injectable
     /**
      * Load modules dependencies
      * @param Micro $app
-     * 
+     *
      * @return void
      */
     public function load(Micro $app): void
@@ -37,7 +37,7 @@ final class ModulesLoader extends Injectable
 
     /**
      * Get the modules config list
-     * 
+     *
      * @return array
      */
     private function getModulesConfig(): array

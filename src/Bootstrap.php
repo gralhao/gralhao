@@ -31,14 +31,24 @@ final class Bootstrap
      */
     private Micro $app;
 
-    public function __construct(?string $path = '..')
+    /**
+     * Config array
+     *
+     * @var array
+     */
+    private array $config = [];
+
+    /**
+     * Project Root Path
+     *
+     * @var string
+     */
+    private string $rootPath = '..';
+
+    public function __construct()
     {
-        $rootPath = realpath($path);
         $this->di = new DependencyInjection();
         $this->app = new Micro($this->di);
-        $this->di->offsetSet('rootPath', function () use ($rootPath) {
-            return $rootPath;
-        });
     }
 
     /**
@@ -67,6 +77,32 @@ final class Bootstrap
     }
 
     /**
+     * Set application config data
+     *
+     * @param array $config
+     *
+     * @return self
+     */
+    public function setConfig(array $config): self
+    {
+        $this->config = $config;
+        return $this;
+    }
+
+    /**
+     * Set application root path
+     *
+     * @param string $rootPath
+     *
+     * @return self
+     */
+    public function setRootPath(string $rootPath): self
+    {
+        $this->rootPath = $rootPath;
+        return $this;
+    }
+
+    /**
      * Load modules from array property in application.config.php
      *
      * @return self
@@ -85,13 +121,16 @@ final class Bootstrap
      */
     private function loadConfig(): self
     {
-        $configPath = $this->di->offsetGet('rootPath') . '/config/application.config.php';
-        if (! file_exists($configPath) || ! is_readable($configPath)) {
-            throw new GralhaoException('Config file does not exist: ' . $configPath);
+        if (! $this->config) {
+            $configPath = realpath($this->rootPath) . '/config/application.config.php';
+            if (! file_exists($configPath) || ! is_readable($configPath)) {
+                throw new GralhaoException('Config file does not exist: ' . $configPath);
+            }
+            $this->config = require $configPath;
         }
-        $this->di->setShared('config', function () use ($configPath) {
-            $data = require $configPath;
-            return new Config($data);
+        $config = $this->config;
+        $this->di->setShared('config', function () use ($config) {
+            return new Config($config);
         });
         return $this;
     }

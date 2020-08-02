@@ -11,7 +11,10 @@ class AppTest extends TestCase
 {
     public function testReturnAnAppInstance(): void
     {
-        $bootstrap = new Bootstrap(__DIR__);
+        $bootstrap = new Bootstrap();
+        $bootstrap->setConfig([
+            'modules' => ['Gralhao\Test\App\Modules\Foo'],
+        ]);
         $this->assertInstanceOf(\Phalcon\Mvc\Micro::class, $bootstrap->getApp());
     }
 }

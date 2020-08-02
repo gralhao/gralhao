@@ -12,7 +12,8 @@ class SuccessResponseTest extends TestCase
 {
     public function testSuccessResponse(): void
     {
-        $bootstrap = new Bootstrap(__DIR__);
+        $bootstrap = new Bootstrap();
+        $bootstrap->setRootPath(__DIR__);
         $request = $this->createMock(Request::class);
         $request->method('getRawBody')->willReturn('data');
         $app = $bootstrap->getApp();

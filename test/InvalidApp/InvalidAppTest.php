@@ -13,7 +13,8 @@ class InvalidAppTest extends TestCase
     public function testReturnInvalidModuleException(): void
     {
         $this->expectException(GralhaoException::class);
-        $bootstrap = new Bootstrap(__DIR__);
+        $bootstrap = new Bootstrap();
+        $bootstrap->setRootPath(__DIR__);
         $bootstrap->init();
     }
 }
