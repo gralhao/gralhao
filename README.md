@@ -51,7 +51,7 @@ Try [gralhao/egg](https://github.com/gralhao/gralhao-egg) it provides the kickst
 ```bash
 composer create-project gralhao/gralhao-egg project/path
 ```
-To learn how to create a module, please check the [sample module repository](https://github.com/gralhao/status-module).
+To learn how to create a module, please check [documentation](/docs/).
 
 ## Built Using <a name = "built_using"></a>
 - [Phalcon](https://phalcon.io/)
