@@ -2,9 +2,8 @@
 
 declare(strict_types=1);
 
-namespace Gralhao\Test;
+namespace GralhaoTest;
 
 class Collection extends \Gralhao\Collection
 {
-
 }

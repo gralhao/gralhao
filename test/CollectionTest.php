@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Gralhao\Test;
+namespace GralhaoTest;
 
 use PHPUnit\Framework\TestCase;
 use Gralhao\Exception\GralhaoException;
