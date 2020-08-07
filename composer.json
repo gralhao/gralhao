@@ -17,7 +17,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Gralhao\\Test\\": "test/"
+            "GralhaoTest\\": "test/"
         }
     },
     "minimum-stability": "stable",
