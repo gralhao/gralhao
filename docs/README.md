@@ -10,10 +10,39 @@ Everything made with Gralhao is opened to Phalcon. It means that all Phalcon fea
 See more in [Phalcon Documentation](https://docs.phalcon.io/4.0/en/introduction).
 
 ## Index
-- [Structure](#structure)
-- [Bootstraping](#Bootstraping)
-- [The Egg](#the-egg)
+- [Bootstraping](#bootstraping)
 - [Modules](#modules)
 - [Collections](#collections)
 - [Providers](#providers)
 - [Models](#models)
+
+
+### Bootstraping <a name = "bootstraping"></a>
+
+> If you need go fast, consider [Gralhao Egg](https://github.com/gralhao/gralhao-egg). It is an application skeleton, ready to code.
+
+##### From array
+```php
+$bootstrap = new \Gralhao\Bootstrap();
+$bootstrap->setConfig([
+    'modules' => [
+        'Module\Namespace'
+    ]
+])->init();
+```
+##### From file
+This way will looks for an application.config.php file inside config folder.
+
+``rootPath/config/application.config.php``
+```php
+<?php
+return [
+    'modules' => [
+        'Module\Namespace'
+    ]
+];
+```
+```php
+$bootstrap = new \Gralhao\Bootstrap();
+$bootstrap->setRootPath(__DIR__)->init();
+```
