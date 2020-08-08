@@ -34,6 +34,6 @@
         "phalcon/devtools": "dev-master",
         "phalcon/ide-stubs": "dev-master",
         "squizlabs/php_codesniffer": "^3.0@dev",
-        "phpunit/phpunit": "^9.2"
+        "gralhao/gralhao-test": "^1.0"
     }
 }

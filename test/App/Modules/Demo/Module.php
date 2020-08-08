@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace GralhaoTest\Module;
+namespace GralhaoTest\App\Modules\Demo;
 
 class Module extends \Gralhao\Module
 {
@@ -10,10 +10,10 @@ class Module extends \Gralhao\Module
     {
         return [
             'collections' => [
-                TestCollection::class,
+                DemoCollection::class,
             ],
             'providers' => [
-                'providerTest' => ProviderTest::class,
+                'demoProvider' => DemoProvider::class,
             ]
         ];
     }

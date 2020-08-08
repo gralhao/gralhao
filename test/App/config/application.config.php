@@ -2,6 +2,6 @@
 
 return [
     'modules' => [
-        'GralhaoTest\Module'
+        'GralhaoTest\App\Modules\Demo'
     ],
 ];

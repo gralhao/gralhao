@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace GralhaoTest\Module;
+namespace GralhaoTest\App\Modules\Demo;
 
-class TestController extends \Gralhao\Controller
+class DemoController extends \Gralhao\Controller
 {
     public function success(): void
     {

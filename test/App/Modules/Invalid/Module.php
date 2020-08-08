@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace GralhaoTest\InvalidModule;
+namespace GralhaoTest\App\Modules\Invalid;
 
 class Module
 {

@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace GralhaoTest;
+namespace GralhaoTest\App;
 
 use Gralhao\Exception\GralhaoException;
+use Gralhao\Test\Request;
 
-class AppTest extends TestCase
+class AppTest extends \Gralhao\Test\TestCase
 {
-
     public function testReturnAnApplicationInstance(): void
     {
         $this->bootstrap()->setRootPath(__DIR__);
@@ -21,7 +21,7 @@ class AppTest extends TestCase
         $bootstrap = $this->bootstrap();
         $bootstrap->setConfig([
             'modules' => [
-                'GralhaoTest\InvalidModule'
+                'GralhaoTest\App\Modules\Invalid'
             ]
         ]);
         $bootstrap->init();
@@ -42,9 +42,9 @@ class AppTest extends TestCase
         $this->bootstrap()->setRootPath(__DIR__);
         $request = new Request();
         $request->setMethod('POST')
-            ->setPath('/test/success')
-            ->setHeader('key', 'value')
-            ->setBody('test');
+        ->setPath('/demo/success')
+        ->setHeader('key', 'value')
+        ->setBody('test');
         $response = $this->dispatch($request);
         $this->assertEquals(200, $response->getStatusCode());
         $this->assertEquals('test', $response->data->body);
@@ -56,7 +56,7 @@ class AppTest extends TestCase
         $this->bootstrap()->setRootPath(__DIR__);
         $request = new Request();
         $request->setMethod('POST')
-            ->setPath('/test/error');
+        ->setPath('/demo/error');
         $response = $this->dispatch($request);
         $this->assertEquals(400, $response->getStatusCode());
     }
