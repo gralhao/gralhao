@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace GralhaoTest;
 
-use PHPUnit\Framework\TestCase;
+use Gralhao\Test\TestCase;
 use Gralhao\Exception\GralhaoException;
 use ArrayObject;
 

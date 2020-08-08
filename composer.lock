@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0a6f4448cfd79f93ea2e26cf859977fb",
+    "content-hash": "ad7b84c667ec7c09de1b3c166b01d8ae",
     "packages": [],
     "packages-dev": [
         {
@@ -109,6 +109,48 @@
                 }
             ],
             "time": "2020-05-29T17:27:14+00:00"
+        },
+        {
+            "name": "gralhao/gralhao-test",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/gralhao/gralhao-test.git",
+                "reference": "aa4836e88925b6bbed27bbdf63995e045cc9c888"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/gralhao/gralhao-test/zipball/aa4836e88925b6bbed27bbdf63995e045cc9c888",
+                "reference": "aa4836e88925b6bbed27bbdf63995e045cc9c888",
+                "shasum": ""
+            },
+            "require": {
+                "phpunit/phpunit": "^9.2"
+            },
+            "require-dev": {
+                "gralhao/gralhao": "^1.0",
+                "phalcon/ide-stubs": "dev-master",
+                "squizlabs/php_codesniffer": "^3.0@dev"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Gralhao\\Test\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Pack of tools to make simple Gralhao application tests",
+            "homepage": "https://github.com/gralhao/gralhao",
+            "keywords": [
+                "gralhao",
+                "phalcon",
+                "phpunit",
+                "test"
+            ],
+            "time": "2020-08-08T03:13:02+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -3153,7 +3195,10 @@
     },
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": "^7.4",
+        "ext-phalcon": "^4.0"
+    },
     "platform-dev": [],
     "plugin-api-version": "1.1.0"
 }
