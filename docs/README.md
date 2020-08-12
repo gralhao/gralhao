@@ -10,14 +10,15 @@ Everything made with Gralhao is opened to Phalcon. It means that all Phalcon fea
 See more in [Phalcon Documentation](https://docs.phalcon.io/4.0/en/introduction).
 
 ## Index
-- [Bootstraping](#bootstraping)
+- [Bootstrapping](#bootstrapping)
 - [Modules](#modules)
 - [Collections](#collections)
 - [Providers](#providers)
 - [Models](#models)
+- [Tests](#tests)
 
 
-### Bootstraping <a name = "bootstraping"></a>
+### Bootstrapping <a name="bootstrapping"></a>
 
 > If you need go fast, consider [Gralhao Egg](https://github.com/gralhao/gralhao-egg). It is an application skeleton, ready to code.
 
@@ -46,3 +47,59 @@ return [
 $bootstrap = new \Gralhao\Bootstrap();
 $bootstrap->setRootPath(__DIR__)->init();
 ```
+
+### Modules <a name="modules"></a>
+In Gralhao, modules are just an alternative way to put your Phalcon code together.
+Modules has a standard to load collections and providers from an unic entry point, the ``Module.php`` file.
+
+##### Creating a module
+Module classes needs extends from ``Gralhao\Module``. And implements ``getConfig`` method, to return a module setup array.
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace Flying;
+
+use Flying\Collections\FlyingCollection;
+use Flying\Providers\FlyingProvider;
+
+class Module extends \Gralhao\Module
+{
+    public function getconfig(): array
+    {
+        return [
+            'collections' => [
+                FlyingCollection::class,
+            ],
+            'providers' => [
+                'flyingProvider' => FlyingProvider::class,
+            ]
+        ];
+    }
+}
+```
+After is necessary to set in ``composer.json`` file, the module namespace on autoload.
+```json
+"autoload": {
+    "psr-4": {
+        "Flying\\": "src/Flying"
+    }
+}
+```
+Don't forget, run ``composer dump-autoload`` to update composer autoload.
+
+##### Loading a module
+Set the module namespace in ``application.config.php`` file.
+
+```php
+<?php
+
+return [
+    'modules' => [
+        'Flying'
+    ],
+];
+```
+It also works to load a module from vendor dependency.
