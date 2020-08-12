@@ -53,7 +53,7 @@ In Gralhao, modules are just an alternative way to put your Phalcon code togethe
 Modules has a standard to load collections and providers from only one entry point, the ``Module.php`` file.
 
 ##### Creating a module
-Module classes needs extends from ``Gralhao\Module``. And implements ``getConfig`` method, to return a module setup array.
+Module classes need extends from ``Gralhao\Module``. And implements ``getConfig`` method, to return a module setup array.
 
 ```php
 <?php
@@ -80,7 +80,7 @@ class Module extends \Gralhao\Module
     }
 }
 ```
-After is necessary to set in ``composer.json`` file, the module namespace on autoload.
+It's necessary to set in ``composer.json`` file, the module namespace on autoload.
 ```json
 "autoload": {
     "psr-4": {
