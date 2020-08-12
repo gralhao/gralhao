@@ -50,7 +50,7 @@ $bootstrap->setRootPath(__DIR__)->init();
 
 ### Modules <a name="modules"></a>
 In Gralhao, modules are just an alternative way to put your Phalcon code together.
-Modules has a standard to load collections and providers from an unic entry point, the ``Module.php`` file.
+Modules has a standard to load collections and providers from only one entry point, the ``Module.php`` file.
 
 ##### Creating a module
 Module classes needs extends from ``Gralhao\Module``. And implements ``getConfig`` method, to return a module setup array.
