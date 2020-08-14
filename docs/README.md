@@ -103,3 +103,68 @@ return [
 ];
 ```
 It also works to load a module from vendor dependency.
+
+### Collections <a name="collection"></a>
+Collections will makes possible to handle requests with a controller class.
+You can see more about collection on [Phalcon Docs](https://docs.phalcon.io/3.4/en/api/phalcon_mvc_micro#class-phalconmvcmicrocollection).
+
+In Gralhao, you need to create a collection class and call it in ``Module.php`` file.
+The handler class (controller) needs to extends from ``\Gralhao\Controller``
+
+##### Collection
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace Flying;
+
+class FlyingCollection extends \Gralhao\Collection
+{
+    public function __construct()
+    {
+        $this->setHandler(FlyingController::class)
+            ->setPrefix('/flying')
+            ->get('', 'success');
+    }
+}
+```
+##### Controller
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace Flying;
+
+class FlyingController extends \Gralhao\Controller
+{
+    public function success(): void
+    {
+        $this->send([
+            'message' => 'Working fine..'
+        ]);
+    }
+}
+```
+##### Module
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace Flying;
+
+class Module extends \Gralhao\Module
+{
+    public function getconfig(): array
+    {
+        return [
+            'collections' => [
+                FlyingCollection::class,
+            ],
+        ];
+    }
+}
+
+```
