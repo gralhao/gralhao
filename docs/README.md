@@ -104,7 +104,7 @@ return [
 ```
 It also works to load a module from vendor dependency.
 
-### Collections <a name="collection"></a>
+### Collections <a name="collections"></a>
 Collections will makes possible to handle requests with a controller class.
 You can see more about collection on [Phalcon Docs](https://docs.phalcon.io/3.4/en/api/phalcon_mvc_micro#class-phalconmvcmicrocollection).
 
