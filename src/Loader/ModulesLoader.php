@@ -27,13 +27,13 @@ final class ModulesLoader extends Injectable
     {
         foreach ($this->getModulesConfig() as $configs) {
             foreach ($configs as $type => $classes) {
-                foreach ($classes as $key => $classeNameSpace) {
+                foreach ($classes as $key => $value) {
                     switch ($type) {
                         case 'collections':
-                            $app->mount(new $classeNameSpace());
+                            $app->mount(new $value());
                             break;
                         case 'providers':
-                            $this->di->set($key, $classeNameSpace);
+                            $this->di->set($key, $value);
                             break;
                     }
                 }
