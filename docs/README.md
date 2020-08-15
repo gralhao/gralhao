@@ -168,3 +168,87 @@ class Module extends \Gralhao\Module
 }
 
 ```
+### Providers <a name="providers"></a>
+Providers are services and classes stored in a Service Locator.
+Read more about [Phalcon Dependency Injection](https://docs.phalcon.io/4.0/pt-br/di).
+
+##### Providers Registration
+Provider classe:
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace Flying\Providers;
+
+class FlyingProvider
+{
+    public function foo(): bool
+    {
+        return true;
+    }
+}
+
+```
+Simple Registration
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace Flying;
+
+use Flying\Collections\FlyingCollection;
+use Flying\Providers\FlyingProvider;
+
+class Module extends \Gralhao\Module
+{
+    public function getconfig(): array
+    {
+        return [
+            'collections' => [
+                FlyingCollection::class,
+            ],
+            'providers' => [
+                'flyingProvider' => FlyingProvider::class,
+            ]
+        ];
+    }
+}
+```
+Complex Registration [Read More](https://docs.phalcon.io/4.0/pt-br/di#complex-registration)
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace Flying;
+
+use Flying\Collections\FlyingCollection;
+use Flying\Providers\FlyingProvider;
+
+class Module extends \Gralhao\Module
+{
+    public function getconfig(): array
+    {
+        return [
+            'collections' => [
+                FlyingCollection::class,
+            ],
+            'providers' => [
+                'flyingProvider' => [
+                    'className'  => FlyingProvider::class,
+                    'shared'     => true,
+                    // 'arguments'  => [],
+                    // 'calls'      => [],
+                    // 'properties' => []
+                ],
+            ]
+        ];
+    }
+}
+```
+##### Using Providers
+```php
+echo $this->di->get('flyingProvider')->foo(); // True
+```
