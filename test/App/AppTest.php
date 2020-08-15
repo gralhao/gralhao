@@ -49,6 +49,7 @@ class AppTest extends \Gralhao\Test\TestCase
         $this->assertEquals(200, $response->getStatusCode());
         $this->assertEquals('test', $response->data->body);
         $this->assertEquals('value', $response->data->headers->key);
+        $this->assertTrue($response->data->fromProvider);
     }
 
     public function testReturnAValidErrorRequestResponse(): void

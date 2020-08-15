@@ -12,6 +12,7 @@ class DemoController extends \Gralhao\Controller
             'body'    => $this->request->getRawBody(),
             'headers' => $this->request->getHeaders(),
             'method'  => $this->request->getMethod(),
+            'fromProvider' => $this->di->get('complexRegistredProvider')->data(),
         ]);
     }
 

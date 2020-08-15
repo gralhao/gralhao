@@ -13,7 +13,14 @@ class Module extends \Gralhao\Module
                 DemoCollection::class,
             ],
             'providers' => [
-                'demoProvider' => DemoProvider::class,
+                'simpleRegistredProvider'   => DemoProvider::class,
+                'complexRegistredProvider' => [
+                    'className'  => DemoProvider::class,
+                    'shared'     => true,
+                    'arguments'  => [],
+                    'calls'      => [],
+                    'properties' => []
+                ],
             ]
         ];
     }

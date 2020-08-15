@@ -6,5 +6,8 @@ namespace GralhaoTest\App\Modules\Demo;
 
 class DemoProvider
 {
-
+    public function data(): bool
+    {
+        return true;
+    }
 }
