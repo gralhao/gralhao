@@ -37,9 +37,8 @@ final class ModulesLoader extends Injectable
                         case 'service_providers':
                             $container->register(new $value());
                             break;
-                        case 'providers':
                         case 'services':
-                            $this->di->set($key, $value);
+                            $container->set($key, $value);
                             break;
                     }
                 }
