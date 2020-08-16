@@ -12,15 +12,18 @@ class Module extends \Gralhao\Module
             'collections' => [
                 DemoCollection::class,
             ],
-            'providers' => [
-                'simpleRegistredProvider'   => DemoProvider::class,
-                'complexRegistredProvider' => [
-                    'className'  => DemoProvider::class,
+            'services' => [
+                'simpleRegistredService'  => DemoService::class,
+                'complexRegistredService' => [
+                    'className'  => DemoService::class,
                     'shared'     => true,
                     'arguments'  => [],
                     'calls'      => [],
                     'properties' => []
                 ],
+            ],
+            'service_providers' => [
+                DemoServiceProvider::class
             ]
         ];
     }

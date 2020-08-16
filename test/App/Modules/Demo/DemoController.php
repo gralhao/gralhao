@@ -9,10 +9,11 @@ class DemoController extends \Gralhao\Controller
     public function success(): void
     {
         $this->send([
-            'body'    => $this->request->getRawBody(),
-            'headers' => $this->request->getHeaders(),
-            'method'  => $this->request->getMethod(),
-            'fromProvider' => $this->di->get('complexRegistredProvider')->data(),
+            'body'                => $this->request->getRawBody(),
+            'headers'             => $this->request->getHeaders(),
+            'method'              => $this->request->getMethod(),
+            'fromService'         => $this->di->get('complexRegistredService')->data(),
+            'fromServiceProvider' => $this->di->get('serviceRegistredFromProvider')->data(),
         ]);
     }
 
