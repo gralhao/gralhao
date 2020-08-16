@@ -25,6 +25,8 @@ final class ModulesLoader extends Injectable
      */
     public function load(Micro $app): void
     {
+        /** @var \Phalcon\Di */
+        $container = $this->di;
         foreach ($this->getModulesConfig() as $configs) {
             foreach ($configs as $type => $classes) {
                 foreach ($classes as $key => $value) {
@@ -32,8 +34,11 @@ final class ModulesLoader extends Injectable
                         case 'collections':
                             $app->mount(new $value());
                             break;
-                        case 'providers':
-                            $this->di->set($key, $value);
+                        case 'service_providers':
+                            $container->register(new $value());
+                            break;
+                        case 'services':
+                            $container->set($key, $value);
                             break;
                     }
                 }
