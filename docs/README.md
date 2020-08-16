@@ -13,7 +13,7 @@ See more in [Phalcon Documentation](https://docs.phalcon.io/4.0/en/introduction)
 - [Bootstrapping](#bootstrapping)
 - [Modules](#modules)
 - [Collections](#collections)
-- [Providers](#providers)
+- [Services](#services)
 - [Models](#models)
 - [Test](https://github.com/gralhao/gralhao-test)
 
@@ -50,7 +50,7 @@ $bootstrap->setRootPath(__DIR__)->init();
 
 ### Modules <a name="modules"></a>
 In Gralhao, modules are just an alternative way to put your Phalcon code together.
-Modules has a standard to load collections and providers from only one entry point, the ``Module.php`` file.
+Modules has a standard to load collections and services from only one entry point, the ``Module.php`` file.
 
 ##### Creating a module
 Module classes need extends from ``Gralhao\Module``. And implements ``getConfig`` method, to return a module setup array.
@@ -63,7 +63,7 @@ declare(strict_types=1);
 namespace Flying;
 
 use Flying\Collections\FlyingCollection;
-use Flying\Providers\FlyingProvider;
+use Flying\Services\FlyingService;
 
 class Module extends \Gralhao\Module
 {
@@ -73,8 +73,8 @@ class Module extends \Gralhao\Module
             'collections' => [
                 FlyingCollection::class,
             ],
-            'providers' => [
-                'flyingProvider' => FlyingProvider::class,
+            'services' => [
+                'flyingService' => FlyingService::class,
             ]
         ];
     }
@@ -168,20 +168,19 @@ class Module extends \Gralhao\Module
 }
 
 ```
-### Providers <a name="providers"></a>
-Providers are services and classes stored in a Service Locator.
-Read more about [Phalcon Dependency Injection](https://docs.phalcon.io/4.0/pt-br/di).
+### Services <a name="services"></a>
+Services can be registred from a service class or a service provider.
+To see more about, please check [Phalcon DI Documentation](https://docs.phalcon.io/4.0/pt-br/di).
 
-##### Providers Registration
-Provider classe:
+Service classe:
 ```php
 <?php
 
 declare(strict_types=1);
 
-namespace Flying\Providers;
+namespace Flying\Services;
 
-class FlyingProvider
+class FlyingService
 {
     public function foo(): bool
     {
@@ -190,7 +189,9 @@ class FlyingProvider
 }
 
 ```
-Simple Registration
+
+##### Registering from service class
+
 ```php
 <?php
 
@@ -199,7 +200,7 @@ declare(strict_types=1);
 namespace Flying;
 
 use Flying\Collections\FlyingCollection;
-use Flying\Providers\FlyingProvider;
+use Flying\Services\FlyingService;
 
 class Module extends \Gralhao\Module
 {
@@ -209,35 +210,10 @@ class Module extends \Gralhao\Module
             'collections' => [
                 FlyingCollection::class,
             ],
-            'providers' => [
-                'flyingProvider' => FlyingProvider::class,
-            ]
-        ];
-    }
-}
-```
-Complex Registration [Read More](https://docs.phalcon.io/4.0/pt-br/di#complex-registration)
-```php
-<?php
-
-declare(strict_types=1);
-
-namespace Flying;
-
-use Flying\Collections\FlyingCollection;
-use Flying\Providers\FlyingProvider;
-
-class Module extends \Gralhao\Module
-{
-    public function getconfig(): array
-    {
-        return [
-            'collections' => [
-                FlyingCollection::class,
-            ],
-            'providers' => [
-                'flyingProvider' => [
-                    'className'  => FlyingProvider::class,
+            'services' => [
+                'flyingService' => FlyingService::class,
+                'flyingServiceUsingComplexRegistration' => [
+                    'className'  => FlyingService::class,
                     'shared'     => true,
                     // 'arguments'  => [],
                     // 'calls'      => [],
@@ -248,7 +224,55 @@ class Module extends \Gralhao\Module
     }
 }
 ```
-##### Using Providers
+See more about [Complex Registration](https://docs.phalcon.io/4.0/pt-br/di#complex-registration).
+
+##### Registering from service provider
 ```php
-echo $this->di->get('flyingProvider')->foo(); // True
+<?php
+
+declare(strict_types=1);
+
+namespace Flying\Services;
+
+use Phalcon\Di\DiInterface;
+use Phalcon\Di\ServiceProviderInterface;
+
+class FlyingServiceProvider implements ServiceProviderInterface
+{
+    public function register(DiInterface $container): void
+    {
+        $container->set('flyingService', FlyingService::class);
+    }
+}
+
+```
+
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace Flying;
+
+use Flying\Collections\FlyingCollection;
+use Flying\Services\FlyingServiceProvider;
+
+class Module extends \Gralhao\Module
+{
+    public function getconfig(): array
+    {
+        return [
+            'collections' => [
+                FlyingCollection::class,
+            ],
+            'service_provider' => [
+                FlyingServiceProvider::class,
+            ],
+        ];
+    }
+}
+```
+##### Using Services
+```php
+echo $this->di->get('flyingService')->foo(); // True
 ```
