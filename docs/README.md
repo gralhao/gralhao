@@ -15,7 +15,7 @@ See more in [Phalcon Documentation](https://docs.phalcon.io/4.0/en/introduction)
 - [Collections](#collections)
 - [Providers](#providers)
 - [Models](#models)
-- [Tests](#tests)
+- [Test](https://github.com/gralhao/gralhao-test)
 
 
 ### Bootstrapping <a name="bootstrapping"></a>
