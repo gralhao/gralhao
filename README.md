@@ -26,7 +26,7 @@
 
 - [About](#about)
 - [Getting Started](#getting_started)
-- [Usage](#usage)
+- [Documentation](/docs/)
 - [Built Using](#built_using)
 - [Authors](#authors)
 - [Acknowledgments](#acknowledgement)
