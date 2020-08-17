@@ -17,12 +17,12 @@ abstract class Controller extends PhalconController
     /**
      * Dispatch HTTP Response
      *
-     * @param array $content
+     * @param mixed $content
      * @param int|null $statusCode
      * @param string|null $statusMessage
      * @return void
      */
-    protected function send(array $content, ?int $statusCode = 200, ?string $statusMessage = null): void
+    protected function send($content, ?int $statusCode = 200, ?string $statusMessage = null): void
     {
         $this->response->setStatusCode($statusCode, $statusMessage);
         if ($content) {
